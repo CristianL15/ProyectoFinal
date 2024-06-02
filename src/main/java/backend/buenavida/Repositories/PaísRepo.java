@@ -7,5 +7,4 @@ import backend.buenavida.Models.País;
 
 @Repository
 public interface PaísRepo extends JpaRepository <País, Integer> {
-    
 }

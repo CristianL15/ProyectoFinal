@@ -11,22 +11,22 @@ public class Inmueble {
     @Id
     @GeneratedValue
     private int consecutivo;
-    private String matricula_inmueble;
-    private int tipo_inmueble;
+    private String matricula;
+    private int tipo;
     private int pais;
     private String direccion;
-    private int precio_venta;
-    private Date fecha_compra;
+    private int precio;
+    private Date fecha;
     private String descripcion;
 
-    public Inmueble(String matricula_inmueble, int tipo_inmueble, int pais, String direccion,
-            int precio_venta, Date fecha_compra, String descripcion) {
-        this.matricula_inmueble = matricula_inmueble;
-        this.tipo_inmueble = tipo_inmueble;
+    public Inmueble(String matricula, int tipo, int pais, String direccion,
+            int precio, Date fecha, String descripcion) {
+        this.matricula = matricula;
+        this.tipo = tipo;
         this.pais = pais;
         this.direccion = direccion;
-        this.precio_venta = precio_venta;
-        this.fecha_compra = fecha_compra;
+        this.precio = precio;
+        this.fecha = fecha;
         this.descripcion = descripcion;
     }
 
@@ -38,20 +38,20 @@ public class Inmueble {
         this.consecutivo = consecutivo;
     }
 
-    public String getMatricula_inmueble() {
-        return matricula_inmueble;
+    public String getmatricula() {
+        return matricula;
     }
 
-    public void setMatricula_inmueble(String matricula_inmueble) {
-        this.matricula_inmueble = matricula_inmueble;
+    public void setmatricula(String matricula) {
+        this.matricula = matricula;
     }
 
-    public int getTipo_inmueble() {
-        return tipo_inmueble;
+    public int gettipo() {
+        return tipo;
     }
 
-    public void setTipo_inmueble(int tipo_inmueble) {
-        this.tipo_inmueble = tipo_inmueble;
+    public void settipo(int tipo) {
+        this.tipo = tipo;
     }
 
     public int getPais() {
@@ -70,20 +70,20 @@ public class Inmueble {
         this.direccion = direccion;
     }
 
-    public int getPrecio_venta() {
-        return precio_venta;
+    public int getprecio() {
+        return precio;
     }
 
-    public void setPrecio_venta(int precio_venta) {
-        this.precio_venta = precio_venta;
+    public void setprecio(int precio) {
+        this.precio = precio;
     }
 
-    public Date getFecha_compra() {
-        return fecha_compra;
+    public Date getfecha() {
+        return fecha;
     }
 
-    public void setFecha_compra(Date fecha_compra) {
-        this.fecha_compra = fecha_compra;
+    public void setfecha(Date fecha) {
+        this.fecha = fecha;
     }
 
     public String getDescripcion() {

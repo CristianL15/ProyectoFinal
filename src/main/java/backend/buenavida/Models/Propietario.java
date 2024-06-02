@@ -8,19 +8,11 @@ public class Propietario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private int consecutvio;
+    private int consecutivo;
     private int id;
     private String nombre;
     private String apellido;
     private String apellido2;
-
-    public Propietario(int id, String nombre) {
-        this(id, nombre, null, null);
-    }
-    
-    public Propietario(int id, String nombre, String apellido) {
-        this(id, nombre, apellido, null);
-    }
 
     public Propietario(int id, String nombre, String apellido, String apellido2) {
         this.id = id;
@@ -30,11 +22,11 @@ public class Propietario {
     }
 
     public int getConsecutivo() {
-        return consecutvio;
+        return consecutivo;
     }
 
-    public void setConsecutivo(int consecutvio) {
-        this.consecutvio = consecutvio;
+    public void setConsecutivo(int consecutivo) {
+        this.consecutivo = consecutivo;
     }
 
     public int getId() {
@@ -71,7 +63,7 @@ public class Propietario {
 
     @Override
     public String toString() {
-        return "Propietario [consecutvio=" + consecutvio + ", id=" + id + ", nombre=" + nombre + ", apellido="
+        return "Propietario [consecutivo=" + consecutivo + ", id=" + id + ", nombre=" + nombre + ", apellido="
                 + apellido + ", apellido2=" + apellido2 + "]";
     }    
 }
