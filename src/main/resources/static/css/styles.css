@@ -1113,7 +1113,17 @@ progress {
   .col-md-4 {
     flex: 0 0 auto;
     width: 33.33333333%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
+.col-md-4:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.fa-stack:hover {
+    color: #007bff;
+}
+
   .col-md-5 {
     flex: 0 0 auto;
     width: 41.66666667%;

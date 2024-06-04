@@ -3,37 +3,37 @@ package backend.buenavida.Models;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "propietarios")
+@Table (name = "propietarios")
 public class Propietario {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private int consecutivo;
-    private int id;
+    @Lob
+    @Column (name="id")
+    private long id;
+
+    @Column (name="nombre")
     private String nombre;
+
+    @Column (name="apellido")
     private String apellido;
+
+    @Column (name="apellido2")
     private String apellido2;
 
-    public Propietario(int id, String nombre, String apellido, String apellido2) {
+    public Propietario() {}
+
+    public Propietario(long id, String nombre, String apellido, String apellido2) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.apellido2 = apellido2;
     }
 
-    public int getConsecutivo() {
-        return consecutivo;
-    }
-
-    public void setConsecutivo(int consecutivo) {
-        this.consecutivo = consecutivo;
-    }
-
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -61,9 +61,5 @@ public class Propietario {
         this.apellido2 = apellido2;
     }
 
-    @Override
-    public String toString() {
-        return "Propietario [consecutivo=" + consecutivo + ", id=" + id + ", nombre=" + nombre + ", apellido="
-                + apellido + ", apellido2=" + apellido2 + "]";
-    }    
+    
 }

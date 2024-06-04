@@ -11,20 +11,44 @@ public class Inmueble {
     @Id
     @GeneratedValue
     private int consecutivo;
+
+    @Column (name="matricula")
     private String matricula;
-    private int tipo;
+
+    @Column (name="tipo")
+    private String tipo;
+
+    @Column (name="pais")
     private int pais;
+
+    @Column (name="direccion")
     private String direccion;
+
+    @Column (name="propietario_id")
+    private long propietario;
+
+    @Column (name="precio")
     private int precio;
+
+    @Column (name="fecha")
     private Date fecha;
+    
+    @Lob
+    @Column (name="descripcion", length = 16777216)
     private String descripcion;
 
-    public Inmueble(String matricula, int tipo, int pais, String direccion,
+    @Column (name="prop_anterior")
+    private long propAnterior;
+
+    public Inmueble(){}
+
+    public Inmueble(String matricula, String tipo, int pais, String direccion, int propietario,
             int precio, Date fecha, String descripcion) {
         this.matricula = matricula;
         this.tipo = tipo;
         this.pais = pais;
         this.direccion = direccion;
+        this.propietario = propietario;
         this.precio = precio;
         this.fecha = fecha;
         this.descripcion = descripcion;
@@ -46,11 +70,11 @@ public class Inmueble {
         this.matricula = matricula;
     }
 
-    public int gettipo() {
+    public String gettipo() {
         return tipo;
     }
 
-    public void settipo(int tipo) {
+    public void settipo(String tipo) {
         this.tipo = tipo;
     }
 
@@ -68,6 +92,14 @@ public class Inmueble {
 
     public void setDireccion(String direccion) {
         this.direccion = direccion;
+    }
+
+    public long getPropietario() {
+        return propietario;
+    }
+
+    public void setPropietario(long propietario) {
+        this.propietario = propietario;
     }
 
     public int getprecio() {
@@ -92,6 +124,15 @@ public class Inmueble {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    
+    public long getPropAnterior() {
+        return propAnterior;
+    }
+
+    public void setPropAnterior(long propAnterior) {
+        this.propAnterior = propAnterior;
     }
 
 }
