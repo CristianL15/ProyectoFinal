@@ -1,35 +1,49 @@
 package backend.buenavida.Controllers;
 
-import java.util.List;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import backend.buenavida.Repositories.InmuebleRepo;
+
 import org.springframework.web.bind.annotation.GetMapping;
-import backend.buenavida.Models.Inmueble;
+
+import backend.buenavida.Models.ConecciónDB;
 
 @Controller
-@RequestMapping
 public class InmuebleController {
     
     @Autowired
     InmuebleRepo inmuebleRepo;
 
-    // @GetMapping("/listarInventario")
-    // public String listarInventario(Model model) {
-    //     List<Inmueble> inmbueles = (List<Inmueble>)inmuebleRepo.findAll();
-    //     model.addAttribute("inmuebles", inmbueles);
-    //     return "redirect:inventario#inventario";
-    // }
+    public InmuebleController(InmuebleRepo inmuebleRepo){
+        this.inmuebleRepo = inmuebleRepo;
+    }
 
-    @GetMapping("/inventario.html/inventario#inventario")
-    public String mostrarInventario(Model model) {
-        List<Inmueble> inmuebles = inmuebleRepo.findAll();
-        model.addAttribute("inmuebles", inmuebles);
-        return "inventario";
+    @GetMapping("/api/inventario")
+    public String obtenerInmuebles() throws SQLException {
+        try {
+            Statement stm = ConecciónDB.getConnection().createStatement();
+            ResultSet rs = stm.executeQuery("select * from inmuebles");
+            ResultSet propietario = stm.executeQuery("select nombre from propietarios where id = " + rs.getInt(9));
+            ResultSet prop_anterior = stm.executeQuery("select nombre from propietarios where id = " + rs.getInt(10));
+            rs.next();
+            rs.next();
+            while (rs.next()) {
+                int i = 1;
+                while (true) {
+                    System.out.print(rs.getString(i) + ", ");
+                    i++;
+                }
+            }
+            System.out.print(propietario.getString(2) + ", " + prop_anterior.getString(2));
+        } catch (SQLException e) {
+            System.out.println("Error " + e.getMessage());
+        }
+
+        return "/inventario.html";
     }
 }

@@ -37,13 +37,13 @@ public class Inmueble {
     @Column (name="descripcion", length = 16777216)
     private String descripcion;
 
-    @Column (name="prop_anterior")
-    private long propAnterior;
+    @Column (name="prop_anterior", nullable = true)
+    private Long propAnterior;
 
     public Inmueble(){}
 
-    public Inmueble(String matricula, String tipo, int pais, String direccion, int propietario,
-            int precio, Date fecha, String descripcion) {
+    public Inmueble(String matricula, String tipo, int pais, String direccion, long propietario,
+            int precio, Date fecha, String descripcion, Long prop_anterior) {
         this.matricula = matricula;
         this.tipo = tipo;
         this.pais = pais;
@@ -52,6 +52,7 @@ public class Inmueble {
         this.precio = precio;
         this.fecha = fecha;
         this.descripcion = descripcion;
+        this.propAnterior = prop_anterior;
     }
 
     public int getConsecutivo() {
@@ -127,11 +128,11 @@ public class Inmueble {
     }
 
     
-    public long getPropAnterior() {
+    public Long getPropAnterior() {
         return propAnterior;
     }
 
-    public void setPropAnterior(long propAnterior) {
+    public void setPropAnterior(Long propAnterior) {
         this.propAnterior = propAnterior;
     }
 

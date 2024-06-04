@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -86,28 +86,21 @@
         <div class="text-center">
             <h2 class="section-heading text-uppercase mb-4">INVENTARIO</h2>
         </div>
-        <table>
+        <table id="tabla">
           <thead>
-              <tr>
-                  <th>Matrícula</th>
-                  <th>Tipo</th>
-                  <th>País</th>
-                  <th>Propietario</th>
-                  <th>Propietario Anterior</th>
-                  <th>Fecha</th>
-                  <th>Precio</th>
-              </tr>
+            <tr>Inmuebles</tr>
+            <tr>
+              <th>#</th>
+              <th>Propietario</th>
+              <th>Matrícula</th>
+              <th>Tipo</th>
+              <th>Fecha</th>
+              <th>Propietario anterior</th>
+              <th>País</th>
+            </tr>
           </thead>
           <tbody>
-              <tr th:each="inmueble : ${inmuebles}">
-                  <td th:text="${inmueble.matricula}"></td>
-                  <td th:text="${inmueble.tipo}"></td>
-                  <td th:text="${inmueble.pais}"></td>
-                  <td th:text="${inmueble.propietario}"></td>
-                  <td th:text="${inmueble.propietarioAnterior}"></td>
-                  <td th:text="${inmueble.fecha}"></td>
-                  <td th:text="${inmueble.precio}"></td>
-              </tr>
+
           </tbody>
       </table>
     </div>
@@ -193,6 +186,8 @@
       </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/inventario.js"></script>
     <script src="js/scripts.js"></script>
   </body>
 </html>
